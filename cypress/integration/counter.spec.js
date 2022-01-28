@@ -13,4 +13,9 @@ describe('Ui-Counter', () => {
     cy.get('.plus-button').click();
     cy.get('.count-display').should('have.value', '11');
   });
+
+  it('should decrease by number 1 when user clicks minus button', () => {
+    cy.get('.minus-button').click();
+    cy.get('.count-display').should('have.value', '9');
+  });
 });
