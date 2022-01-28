@@ -18,4 +18,20 @@ describe('Ui-Counter', () => {
     cy.get('.minus-button').click();
     cy.get('.count-display').should('have.value', '9');
   });
+
+  it(`shouldn't decrease the value below number 8`, () => {
+    cy.get('.minus-button').click();
+    cy.get('.minus-button').click();
+    cy.get('.minus-button').click();
+    cy.get('.minus-button').click();
+    cy.get('.count-display').should('have.value', '8');
+  });
+
+  it(`shouldn't increase the value above number 12 `, () => {
+    cy.get('.plus-button').click();
+    cy.get('.plus-button').click();
+    cy.get('.plus-button').click();
+    cy.get('.plus-button').click();
+    cy.get('.count-display').should('have.value', '12');
+  });
 });
